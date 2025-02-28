@@ -2,13 +2,12 @@
 
 Projeto para resolver o desafio bonus do NTI da Alfa Transportes. Os dados foram puxados da API https://receitaws.com.br/api por cnpj.
 
-## Principais bibliotecas
+## Principais tecnologias
 
-- psycopg==3.2.3
-- python-dotenv==1.0.1
-- requests==2.32.3
+- python == 3.11.9
+- postgres == 17.4
 
-Foi usado psycopg para conectar com o banco postgres usando o servidor do tembo.io (https://tembo.io/), dotenv para armazenar as credenciais do banco e request para puxar os dados da api.
+As bibliotecas usadas para o projeto funcionar podem ser encontradas no requirementes.py.
 
 ## Como o programa funciona
 
