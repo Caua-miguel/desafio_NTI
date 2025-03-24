@@ -5,18 +5,30 @@ Projeto para resolver o desafio bonus do NTI da Alfa Transportes. Os dados foram
 ## Principais tecnologias
 
 - python == 3.11.9
-- postgres == 17.4
 
 As bibliotecas usadas para o projeto funcionar podem ser encontradas no requirementes.py.
 
-## Como o programa funciona
+## Funcionamento do projeto
 
-O projeto está dividido em várias partes, cada uma com uma responsabilidade específica:
+Para rodar o projeto você precisa criar sua pasta .env para armazenar a chave secreta do flask e seguir os seguintes passos:
 
-- main: Responsável por executar o fluxo principal do programa.
-- config: Contém funções auxiliares e configurações gerais.
-- api: Faz as requisições dos dados, uma a cada 20 segundos para seguir a regra de 3 por minuto da API, utilizando o CNPJ e armazena as informações em uma lista.
-- database: Responsável pela interação com o banco de dados, incluindo:
-  - Conexão com o banco.
-  - Criação das tabelas.
-  - Inserção de dados: Além de realizar o insert, esse módulo também trata o CNPJ, que chega da API com 18 caracteres, ajustando-o para 14 caracteres (apenas números) antes de inserir no banco.
+Instalação dos requisitos
+
+`pip install -r requirements.txt`
+
+Iniciar e ajustar o banco de dados sqlite, seguindo a própria documentação do flask-migrate
+
+```
+flask db init
+
+flask db migrate
+
+flask db upgrade
+```
+Em seguida, basta executar o arquivo app.py
+
+`python app.py`
+
+Com a api rodando localmente, use a rota `/filiais` para inserir os dados. A requisição está no método GET:
+
+`http://127.0.0.1:5000/filiais`
