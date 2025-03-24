@@ -1,3 +1,11 @@
-.env
+*.pyc
 venv
+.DS_Store
+blog
+*.db
+coverage
+tag.py
+instance
+.env
 __pycache__
+migrations

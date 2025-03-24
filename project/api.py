@@ -7,23 +7,23 @@ cnpjs = [
     '82110818002094', '82110818002507', '82110818002841'
 ]
 
-lista_filiais = []
+list_branches = []
 
-def dados_filiais():
+def data_brances():
     for cnpj in cnpjs:
         url = f'https://receitaws.com.br/v1/cnpj/{cnpj}'
         response = requests.get(url)
 
         if response.status_code == 200:
-            filiais = response.json()
-            lista_filiais.append({
-            'cnpj': filiais["cnpj"],
-            'nome': filiais["nome"],
-            'cidade': filiais["municipio"],
-            'estado': filiais["uf"]
+            brances = response.json()
+            list_branches.append({
+            'cnpj': brances["cnpj"],
+            'name': brances["nome"],
+            'city': brances["municipio"],
+            'state': brances["uf"]
             })
         else:
             print(f"Erro ao obter dados para o CNPJ {cnpj}. Codigo: {response.status_code}")
 
         time.sleep(20)
-    return lista_filiais
+    return list_branches
