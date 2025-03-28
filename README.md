@@ -1,6 +1,8 @@
 # Desafio NTI
 
-Projeto para resolver o desafio bonus do NTI da Alfa Transportes. Os dados foram puxados da API https://receitaws.com.br/api por cnpj.
+Projeto para resolver o desafio bonus do NTI da Alfa Transportes. Os dados foram puxados da API https://receitaws.com.br/api por cnpj. 
+
+É importante lembrar que a api só permite três requisições por minuto, portanto, o programa vai rodar ao longo de três minutos para retornar os dados.
 
 ## Principais tecnologias
 
