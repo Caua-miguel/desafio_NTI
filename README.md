@@ -10,9 +10,8 @@ Projeto para resolver o desafio bonus do NTI da Alfa Transportes. Os dados foram
 
 ### Tecnologias Utilizadas
 
-As bibliotecas usadas para o projeto funcionar podem ser encontradas no `requirements.py`.
+As bibliotecas usadas para o projeto funcionar podem ser encontradas no `requirements.txt`.
 
-- **Python**: 3.11.9
 - **Flask**: Framework para criação da API
 - **SQLite**: Banco de dados utilizado no projeto
 - **Flask-Migrate**: Para gerenciamento de migrações do banco de dados
