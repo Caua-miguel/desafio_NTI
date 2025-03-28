@@ -4,18 +4,20 @@ Projeto para resolver o desafio bonus do NTI da Alfa Transportes. Os dados foram
 
 É importante lembrar que a api só permite três requisições por minuto, portanto, o programa vai rodar ao longo de três minutos para retornar os dados.
 
-## Principais tecnologias
+## Requisitos
 
 - python == 3.11.9
 
-As bibliotecas usadas para o projeto funcionar podem ser encontradas no requirementes.py.
+### Tecnologias Utilizadas
 
-## Tecnologias Utilizadas
+As bibliotecas usadas para o projeto funcionar podem ser encontradas no `requirements.py`.
 
 - **Python**: 3.11.9
 - **Flask**: Framework para criação da API
 - **SQLite**: Banco de dados utilizado no projeto
 - **Flask-Migrate**: Para gerenciamento de migrações do banco de dados
+
+## Preparação
 
 As dependências do projeto estão listadas no arquivo `requirements.txt`.
 
@@ -24,7 +26,7 @@ As dependências do projeto estão listadas no arquivo `requirements.txt`.
 
 Essa chave é **necessária** para o funcionamento adequado do projeto.
 
-### Execução do projeto
+## Execução do projeto
 
 Iniciar e ajustar o banco de dados sqlite, seguindo a própria documentação do flask-migrate
 
@@ -40,6 +42,8 @@ Em seguida, basta executar o arquivo app.py
 ```shell
 python app.py
 ```
+
+## Testando a aplicação
 
 Com a api rodando localmente, use a rota `/filiais` para inserir os dados. A requisição está no método GET:
 
