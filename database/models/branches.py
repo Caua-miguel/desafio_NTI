@@ -12,4 +12,13 @@ class Branches(db.Model):
     tbb_s_name = db.Column(db.String(255), nullable=False)
     tbb_s_city = db.Column(db.String(255), nullable=False)
     tbb_s_state = db.Column(db.String(2), nullable=False)
+
+    def as_dict(self):
+        return{
+            'tbb_i_code': self.tbb_i_code,
+            'tbb_s_cnpj': self.tbb_s_cnpj,
+            'tbb_s_name': self.tbb_s_name,
+            'tbb_s_city': self.tbb_s_city,
+            'tbb_s_state': self.tbb_s_state,
+        }
  
