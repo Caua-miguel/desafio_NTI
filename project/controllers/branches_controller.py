@@ -1,6 +1,5 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify
 from project.services.branches_services import Branche
-from database.models.branches import db, Branches
 
 branches_blueprint = Blueprint("branche", __name__)
 
@@ -23,12 +22,8 @@ def insert_branches():
     Branche.insert_branches()
     return jsonify({"message: ": "Branch added successfully! "}), 201
 
-@branches_blueprint.route("/filiais/<string:cnpj>/delete", methods=["GET", "DELETE"])
+# delete não vai para a versão final
+@branches_blueprint.route("/filiais/<string:cnpj>/delete", methods=["DELETE"])
 def delete_branches(cnpj):
-    branche_by_cnpj = db.session.query(Branches).filter_by(tbb_s_cnpj=cnpj).first_or_404()
-
-    if request.method == "DELETE":
-        db.session.delete(branche_by_cnpj)
-        db.session.commit()
+        Branche.delete_branches(cnpj)
         return jsonify({'message': 'Branch deleted successfully!'}), 201
-    return jsonify({'message': 'Use the delete method'}), 201
