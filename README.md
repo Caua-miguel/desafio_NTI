@@ -47,3 +47,7 @@ python app.py
 Com a api rodando localmente, use a rota `/filiais` para inserir os dados. A requisição está no método GET:
 
 `http://127.0.0.1:5000/filiais`
+
+Após 3 minutos, os dados vão ser inseridos no banco sqlite e podem ser visualizados com a rota `/` ou apenas com o endereço do localhost, também em método GET:
+
+`http://127.0.0.1:5000/`
