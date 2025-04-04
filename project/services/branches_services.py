@@ -1,6 +1,7 @@
 from database.config.db import db
 from database.models.branches import Branches
-from project.api import data_brances
+from project.services.api_services import BranchesAlfa
+from project.controllers.api_controller import cnpjs
 import re
 
 class Branche:
@@ -15,16 +16,17 @@ class Branche:
         return branche_exists
     
     def insert_branches():
-        data = data_brances()
+        brs_alfa = BranchesAlfa(cnpjs)
+        data = brs_alfa.collect_branches_data()
         for branches in data:
             branches['cnpj'] = re.sub(r'\D','', branches['cnpj'])
             new_branches = Branches(tbb_s_cnpj=branches['cnpj'], tbb_s_name=branches["name"], tbb_s_city=branches["city"], tbb_s_state=branches["state"])
             db.session.add(new_branches)
             db.session.commit()
-        return
+        return {}
     
     def delete_branches(cnpj):
         branche_by_cnpj = db.session.query(Branches).filter_by(tbb_s_cnpj=cnpj).first_or_404()
         db.session.delete(branche_by_cnpj)
         db.session.commit()
-        return
+        return {}
