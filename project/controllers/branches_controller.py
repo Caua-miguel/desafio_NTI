@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify
 from project.services.branches_services import Branche
+from project.controllers.api_controller import cnpjs
 
 branches_blueprint = Blueprint("branche", __name__)
 
@@ -19,7 +20,7 @@ def insert_branches():
     if branches_exists:
         return jsonify({"error": "Branche already exists!"}), 409
     
-    Branche.insert_branches()
+    Branche.insert_branches(cnpjs)
     return jsonify({"message: ": "Branch added successfully! "}), 201
 
 # delete não vai para a versão final

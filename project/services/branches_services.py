@@ -1,7 +1,6 @@
 from database.config.db import db
 from database.models.branches import Branches
 from project.services.api_services import BranchesAlfa
-from project.controllers.api_controller import cnpjs
 import re
 
 class Branche:
@@ -15,7 +14,7 @@ class Branche:
         branche_exists = Branches.query.first() is not None
         return branche_exists
     
-    def insert_branches():
+    def insert_branches(cnpjs):
         brs_alfa = BranchesAlfa(cnpjs)
         data = brs_alfa.collect_branches_data()
         for branches in data:
