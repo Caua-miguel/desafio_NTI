@@ -1,11 +1,12 @@
 from flask import Flask
 from database.models.branches import db
-from database.config.conn import AplicationConfig
+from project.config.setup import setup
 from flask_migrate import Migrate
 
 app = Flask(__name__)
 
-app.config.from_object(AplicationConfig)
+load_config = setup()
+app.config.from_object(load_config)
 db.init_app(app)
 
 migrate = Migrate(app, db)
