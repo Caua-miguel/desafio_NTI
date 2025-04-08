@@ -1,4 +1,4 @@
-from project import app
+from project import app_flask
 
 if __name__ == '__main__':
-    app.run()
+    app_flask.run()

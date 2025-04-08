@@ -18,7 +18,7 @@ def insert_branches():
 
     branches_exists = Branche.branches_exists()
     if branches_exists:
-        return jsonify({"error": "Branche already exists!"}), 409
+        return jsonify({"message": "Branche already exists!"}), 409
     
     Branche.insert_branches(cnpjs)
     return jsonify({"message: ": "Branch added successfully! "}), 201
