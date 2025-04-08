@@ -7,13 +7,15 @@ class AplicationConfig(object):
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = True
-    SQLALCHEMY_DATABASE_URI = r'sqlite:///:memory:'
+    SQLALCHEMY_DATABASE_URI = r"sqlite:///./db.sqlite"
 
 class ProductionConfig(AplicationConfig):
+    #configurar um banco postgres
     SQLALCHEMY_DATABASE_URI = r"sqlite:///./db.sqlite"
 
 class DevelopmentConfig(AplicationConfig):
     DEBUG = True
 
 class TestingConfig(AplicationConfig):
+    SQLALCHEMY_DATABASE_URI = r'sqlite:///:memory:'
     TESTING = True
