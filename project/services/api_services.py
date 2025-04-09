@@ -2,7 +2,7 @@ import requests
 import time
 from typing import List, Dict
 
-class BranchesAlfa:
+class BranchesAlfa():
     def __init__(self, cnpjs: List[str]):
         self.cnpjs = cnpjs
     
@@ -36,6 +36,6 @@ class BranchesAlfa:
         for cnpj in self.cnpjs:
             branche_data = self.get_data_branches(cnpj)
             if branche_data:
-                branches_data.append()
+                branches_data.append(branche_data)
             time.sleep(20)
         return branches_data
