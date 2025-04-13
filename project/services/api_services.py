@@ -6,6 +6,7 @@ class BranchesAlfa():
     def __init__(self, cnpjs: List[str]):
         self.cnpjs = cnpjs
     
+    # Tirar esse método, vamos usar o json com as chaves da própria api
     def get_data_branches(self, cnpj: str) -> Dict[str, str]:
         
         url = f'https://receitaws.com.br/v1/cnpj/{cnpj}'
