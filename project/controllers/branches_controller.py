@@ -13,7 +13,7 @@ def list_branches():
     if not brs:
         info("The branches table is empty")
         return jsonify({"error": "No branches found!"}), 409
-    info("The route was called successfully")
+    info("Route call completed successfully!")
     return jsonify(brs), 201
 
 @branches_blueprint.route("/filiais")
@@ -24,7 +24,7 @@ def insert_branches():
         return jsonify({"message": "Branche already exists!"}), 409
     
     Branche.insert_branches(cnpjs)
-    info("The route was called successfully")
+    info("Route call completed successfully!")
     return jsonify({"message: ": "Branch added successfully! "}), 201
 
 # delete não vai para a versão final

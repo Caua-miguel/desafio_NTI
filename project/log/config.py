@@ -1,5 +1,10 @@
 import logging
+import os
 from colorlog import ColoredFormatter
+
+log_file_path = 'project/log/var/logs.log'
+log_dir = os.path.dirname(log_file_path)
+os.makedirs(log_dir, exist_ok=True)
 
 logging_config = dict(
     version = 1,
@@ -8,8 +13,8 @@ logging_config = dict(
             '()': ColoredFormatter,
             'format': '%(log_color)s%(levelname)-8s : %(asctime)s : %(message)s',
             'log_colors': {
-                'DEBUG':    'green',
-                'INFO':     'cyan',
+                'DEBUG':    'fg_82',
+                'INFO':     'bold_blue',
                 'WARNING':  'yellow',
                 'ERROR':    'red',
                 'CRITICAL': 'bold_red',
@@ -22,9 +27,9 @@ logging_config = dict(
                 'level': logging.DEBUG,
             },
         'fh': {'class': 'logging.FileHandler',
-                'filename': 'project/log/var/logs.log',
+                'filename': log_file_path,
                 'mode': 'a',
-                'formatter': 'f',
+                'formatter': 'color',
                 'level': logging.WARNING,
                 },      
     },

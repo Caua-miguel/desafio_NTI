@@ -10,7 +10,6 @@ class Branche:
         branches = db.session.query(Branches).all()
         br_list = [br.as_dict() for br in branches]
         debug(f"Def select_branches returned list: {br_list}")
-        info("The list was returned successfully")
         return br_list
     
     def branches_exists():
@@ -27,7 +26,7 @@ class Branche:
             new_branches = Branches(tbb_s_cnpj=branches['cnpj'], tbb_s_name=branches["name"], tbb_s_city=branches["city"], tbb_s_state=branches["state"])
             db.session.add(new_branches)
             db.session.commit()
-            info("Branch successfully extended")
+        info("Branchs successfully extended")
         return {}
     
     def delete_branches(cnpj):
