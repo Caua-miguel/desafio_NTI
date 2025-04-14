@@ -9,4 +9,4 @@ instance
 .env
 __pycache__
 migrations
-.log
+*.log
