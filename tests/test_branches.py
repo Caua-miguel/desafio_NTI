@@ -51,7 +51,7 @@ def test_add_branche_calls_insert(mocker):
         'state': "SC"
     }
     
-    mock_add.assert_called_once() # verifica se o mock foi chamado apenas uma vez
+    mock_add.assert_called_once()
     mock_commit.assert_called_once()
 
     """Essa parte basicamente foi feita para acessar o que tem dentro do objeto Branches,
