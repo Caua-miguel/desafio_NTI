@@ -1,6 +1,7 @@
 import logging
 import os
 from colorlog import ColoredFormatter
+from project.log.filters.enviroment_filter import env_filter
 
 log_file_path = 'project/log/var/logs.log'
 log_dir = os.path.dirname(log_file_path)
@@ -21,10 +22,16 @@ logging_config = dict(
             },
         },
     },
+    filters = {
+        'enviroment_mode': {
+            '()': env_filter,
+        },
+    },
     handlers = {
         'sh': {'class': 'logging.StreamHandler',
                 'formatter': 'color',
                 'level': logging.DEBUG,
+                'filters': ['enviroment_mode']
             },
         'fh': {'class': 'logging.FileHandler',
                 'filename': log_file_path,
