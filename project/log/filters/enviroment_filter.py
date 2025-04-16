@@ -1,17 +1,16 @@
-from logging import DEBUG, INFO, NOTSET
-import logging
+from project.log.config import logging_config
 import os
+import logging
 
 def env_filter():
+    
     mode=os.environ.get('MODE')
 
-    logger = logging.getLogger()
-    logger.setLevel(NOTSET)
-
-    for handler in logger.handlers:
-        if mode == 'PRODUCTION':
-            handler.setLevel(INFO)
-            return {}
-        elif mode == 'DEVELOPMENT':
-            handler.setLevel(DEBUG)
-            return {}
+    if mode == 'PRODUCTION':
+        log_dict = logging_config
+        log_dict['handlers']['sh']['level'] = logging.INFO
+        return log_dict
+    elif mode == 'DEVELOPMENT':
+        log_dict = logging_config
+        log_dict['handlers']['sh']['level'] = logging.DEBUG
+        return log_dict

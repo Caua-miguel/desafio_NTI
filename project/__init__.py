@@ -3,11 +3,12 @@ from database.models.branches import db
 from project.config.setup import setup
 from flask_migrate import Migrate
 from logging.config import dictConfig
-from project.log.config import logging_config
+from project.log.filters.enviroment_filter import env_filter
 
 app_flask = Flask(__name__)
 
-dictConfig(logging_config)
+log_env = env_filter()
+dictConfig(log_env)
 load_config = setup()
 app_flask.config.from_object(load_config)
 db.init_app(app_flask)
