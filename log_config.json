@@ -1,0 +1,60 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "simple": {
+            "()": "colorlog.ColoredFormatter",
+            "fmt": "%(log_color)s%(asctime)s: %(levelname)-8s: %(message)s",
+            "datefmt": "%Y-%m-%d %H:%M",
+            "log_colors": {       
+                "DEBUG": "green",
+                "INFO": "cyan",
+                "WARNING": "yellow",
+                "ERROR": "red",
+                "CRITICAL": "red,bg_white"
+            }
+        },
+        "json": {
+            "()": "project.log.logger.JSONFormatter",
+            "fmt_keys": {
+                "level": "levelname",
+                "timestamp": "timestamp",
+                "logger": "name",
+                "module": "module",
+                "function": "funcName",
+                "line": "lineno",
+                "thread_name": "threadName"
+            }
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "DEBUG",
+            "formatter": "simple",
+            "stream": "ext://sys.stderr"
+        },
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "DEBUG",
+            "formatter": "json",
+            "filename": "project/log/var/desafio_nti.log.jsonl",
+            "maxBytes": 10000,
+            "backupCount": 3
+        },
+        "queue_handler": {
+            "()": "project.log.queue.QueueListenerHandler",
+            "handlers": [
+                "cfg://handlers.console", 
+                "cfg://handlers.file"
+            ],
+            "respect_handler_level": true
+        }
+    },
+    "loggers": {
+        "root": {
+            "level": "DEBUG",
+            "handlers": ["queue_handler"]
+        }
+    }
+}
