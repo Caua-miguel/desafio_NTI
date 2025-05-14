@@ -29,8 +29,7 @@
     },
     "handlers": {
         "console": {
-            "class": "logging.StreamHandler",
-            "level": "DEBUG",
+            "()": "project.log.handler.EnvStreamHandler",
             "formatter": "simple",
             "stream": "ext://sys.stderr"
         },
