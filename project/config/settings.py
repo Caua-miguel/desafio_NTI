@@ -1,7 +1,9 @@
 import os
+from pathlib import Path
 
 class AplicationConfig(object):
     SECRET_KEY = os.environ['SECRET_KEY']
+
     DEBUG = False
     TESTING = False
 
