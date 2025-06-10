@@ -41,7 +41,7 @@ Caso não adicione nenhum modo, o programa vai pegar o modo de desenvolvimento p
 
 ## Execução do projeto
 
-Iniciar e ajustar o banco de dados sqlite, seguindo a própria documentação do flask-migrate
+**Com o `.env` configurado**, podemos iniciar e ajustar o banco de dados sqlite, seguindo a própria documentação do flask-migrate
 
 ```shell
 pip install --upgrade -r requirements.txt
