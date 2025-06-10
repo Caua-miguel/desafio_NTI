@@ -23,7 +23,8 @@ As dependências do projeto estão listadas no arquivo `requirements.txt`.
 1. **Renomeie o arquivo `.env.example` para `.env`**.
 2. **Adicione sua chave secreta (secret key)** no arquivo `.env`.
 
-Essa chave é **necessária** para o funcionamento adequado do projeto.
+>[!NOTE]
+>Essa chave é **necessária** para o funcionamento adequado do projeto.
 
 **Opcional**
 Você pode, também, adicionar um "MODE" para seu projeto. Esse modo vai escolher qual o tipo de ambiente
@@ -33,11 +34,14 @@ o projeto vai roda, podendo ser: produção, teste e desenvolvimento. Para escol
 - DEVELOPMENT
 - TESTING
 
-Ex:
+>[!NOTE]
+>Caso não adicione nenhum modo, o programa vai pegar o modo de desenvolvimento por padrão.
 
-`MODE=PRODUCTION`
-
-Caso não adicione nenhum modo, o programa vai pegar o modo de desenvolvimento por padrão.
+**Exemplo:**
+~~~env
+SECRET_KEY=senhasupersecreta
+MODE=PRODUCTION
+~~~
 
 ## Execução do projeto
 
@@ -60,10 +64,16 @@ python app.py
 
 ## Testando a aplicação
 
-Com a api rodando localmente, use a rota `/filiais` para inserir os dados. A requisição está no método GET:
+Com a api rodando localmente, use a rota `/filiais` para inserir os dados.
 
-`http://127.0.0.1:5000/filiais`
+> [!WARNING]
+> **Não recarregue a página, uma segunda requisição vai estourar o limite de 3 requisições por minuto da api, dando erro!**
 
-Após 3 minutos, os dados vão ser inseridos no banco sqlite e podem ser visualizados com a rota `/` ou apenas com o endereço do localhost, também em método GET:
+A requisição está no método GET: `http://127.0.0.1:5000/filiais`
+
+> [!IMPORTANT]
+> A rota vai ficar rodando durante **3 minutos**
+
+**Após esses 3 minuntos**, os dados vão ser inseridos no banco sqlite e podem ser visualizados com a rota `/` ou apenas com o endereço do localhost, também em método GET:
 
 `http://127.0.0.1:5000/`
