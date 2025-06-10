@@ -23,7 +23,7 @@ As dependências do projeto estão listadas no arquivo `requirements.txt`.
 1. **Renomeie o arquivo `.env.example` para `.env`**.
 2. **Adicione sua chave secreta (secret key)** no arquivo `.env`.
 
->[!NOTE]
+>[!IMPORTANT]
 >Essa chave é **necessária** para o funcionamento adequado do projeto.
 
 **Opcional**
