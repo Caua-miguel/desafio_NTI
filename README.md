@@ -67,7 +67,7 @@ python app.py
 Com a api rodando localmente, use a rota `/filiais` para inserir os dados.
 
 > [!WARNING]
-> **Não recarregue a página, uma segunda requisição vai estourar o limite de 3 requisições por minuto da api, dando erro!**
+> **Não recarregue a página, a solução para esse problema ainda está sendo implementada, uma segunda requisição vai estourar o limite de 3 requisições por minuto da api, dando erro!**
 
 A requisição está no método GET: `http://127.0.0.1:5000/filiais`
 
